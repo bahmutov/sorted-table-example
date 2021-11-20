@@ -1,7 +1,26 @@
-table td {
-  border: 3px solid black;
-  padding: 3px 5px;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
+
+table {
+  border-spacing: 1px;
+}
+
+table td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
 #sort-by-date {
-  margin: 10px 0px;
+  margin: 0px 10px;
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
 }

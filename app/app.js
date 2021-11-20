@@ -1,19 +1,37 @@
+const list = [
+  {
+    name: 'Joe',
+    date: '1990-02-25',
+  },
+  {
+    name: 'Anna',
+    date: '2010-03-26',
+  },
+  {
+    name: 'Dave',
+    date: '1997-12-23',
+  },
+  {
+    name: 'Cary',
+    date: '2001-01-24',
+  },
+]
+const itemToRow = (item) =>
+  `<tr><td>${item.name}</td><td>${item.date}</td></tr>`
+const listToHtml = (list) => list.map(itemToRow).join('\n')
+
 function sortTable() {
-  document.getElementById('people-data').innerHTML = `
-      <tr><td>Joe</td><td>2022-02-25</td></tr>
-      <tr><td>Dave</td><td>2023-12-23</td></tr>
-      <tr><td>Cary</td><td>2024-01-24</td></tr>
-      <tr><td>Anna</td><td>2027-03-26</td></tr>
-    `
+  const sorted = [list[0], list[2], list[3], list[1]]
+  document.getElementById('people-data').innerHTML = listToHtml(sorted)
 }
 function reverseSortTable() {
-  document.getElementById('people-data').innerHTML = `
-      <tr><td>Anna</td><td>2027-03-26</td></tr>
-      <tr><td>Cary</td><td>2024-01-24</td></tr>
-      <tr><td>Dave</td><td>2023-12-23</td></tr>
-      <tr><td>Joe</td><td>2022-02-25</td></tr>
-    `
+  const sorted = [list[1], list[3], list[2], list[0]]
+  document.getElementById('people-data').innerHTML = listToHtml(sorted)
 }
+
+// set the initial table
+document.getElementById('people-data').innerHTML = listToHtml(list)
+
 document.getElementById('sort-by-date').addEventListener('click', function () {
   // sort the table after some random interval
   setTimeout(sortTable, Math.random() * 2000 + 500)

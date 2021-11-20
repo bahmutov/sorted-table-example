@@ -1,0 +1,25 @@
+{
+  "name": "sorted-table-example",
+  "version": "1.0.0",
+  "description": "Cypress testing if the table is sorted by a column",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/sorted-table-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bahmutov/sorted-table-example/issues"
+  },
+  "homepage": "https://github.com/bahmutov/sorted-table-example#readme",
+  "devDependencies": {
+    "cypress": "^9.0.0",
+    "prettier": "^2.4.1"
+  }
+}

@@ -11,8 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/bahmutov/sorted-table-example.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cypress-example"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bahmutov/sorted-table-example/issues"

@@ -1,10 +1,5 @@
 /// <reference types="cypress" />
 
-import { invoke, map, toDate, pipe, really } from 'cypress-should-really'
-
-// https://www.chaijs.com/plugins/chai-sorted/
-chai.use(require('chai-sorted'))
-
 beforeEach(() => {
   cy.visit('app/table.html')
 })
@@ -27,16 +22,19 @@ it('spies on innerHTML property', () => {
     // calls table.innerHTML = ... with sorted html
     const setTable = cy.stub().as('setTable')
 
-    // use our own "el.innerHTML" to call the spy AND call the original "innerHTML"
+    // use our own "el.innerHTML" to call the spy
+    // AND call the original "innerHTML"
     const el = $tbody[0]
     const ownProperty = findPropertyDescriptor(el, 'innerHTML')
     expect(ownProperty, 'innerHTML descriptor').to.not.be.undefined
 
+    // direct all "set" and "get" calls to the native implementation
     Object.defineProperty(el, 'innerHTML', {
       get() {
         return ownProperty.get.call(el)
       },
       set(newHtml) {
+        // plus call our test stub
         setTable()
         ownProperty.set.call(el, newHtml)
       },
@@ -47,8 +45,4 @@ it('spies on innerHTML property', () => {
   // once our spy is called, that means the application
   // has called "tbody.innerHTML = ..." and the table is sorted
   cy.get('@setTable').should('be.called')
-
-  // check if the table is sorted
-  const fn = pipe(map('innerText'), map(toDate), invoke('getTime'))
-  cy.get('tbody td:nth-child(2)').then(fn).should('be.sorted')
 })

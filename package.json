@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "cypress run"
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
   "homepage": "https://github.com/bahmutov/sorted-table-example#readme",
   "devDependencies": {
     "chai-sorted": "0.2.0",
-    "cypress": "9.1.0",
+    "cypress": "9.0.0",
     "cypress-should-really": "1.1.0",
     "prettier": "2.5.0"
   }

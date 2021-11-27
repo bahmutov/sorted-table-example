@@ -15,51 +15,64 @@ it('is not sorted at first', () => {
   cy.get('tbody td:nth-child(2)')
     .should('have.length', 4)
     .then(map('innerText'))
+    .then(map((s) => new Date(s)))
+    .then(map((d) => d.getTime()))
+    .should('not.be.sorted')
+})
+
+it('is not sorted at first, using should-really utils', () => {
+  cy.get('tbody td:nth-child(2)')
+    .should('have.length', 4)
+    .then(map('innerText'))
     .then(map(toDate))
     .then(invoke('getTime'))
     .should('not.be.sorted')
 })
 
-it('gets sorted by date', () => {
+it('gets sorted sorted by date, using should-really utils', () => {
   cy.contains('button', 'Sort by date').click()
-  cy.get('tbody td:nth-child(2)')
-    .should('have.length', 4)
-    // use a callback function as an assertion
-    .and(($cells) => {
-      const strings = map('innerText')($cells)
-      const dates = map(toDate)(strings)
-      const timestamps = invoke('getTime')(dates)
-      expect(timestamps).to.be.ascending
-    })
-})
 
-it('gets sorted by date: f(g(x))', () => {
-  cy.contains('button', 'Sort by date').click()
   cy.get('tbody td:nth-child(2)').should(($cells) => {
-    expect(invoke('getTime')(map(toDate)(map('innerText')($cells)))).to.be
-      .ascending
+    const strings = map('innerText')($cells)
+    const dates = map(toDate)(strings)
+    const timestamps = invoke('getTime')(dates)
+
+    // basically composition right to left
+    // const timestamps = invoke('getTime')(map(toDate)(map('innerText')($cells)))
+
+    expect(timestamps).to.be.ascending
   })
 })
 
-it('gets sorted by date: pipe', () => {
+it('gets sorted sorted by date, using pipe', () => {
   cy.contains('button', 'Sort by date').click()
+
   cy.get('tbody td:nth-child(2)').should(($cells) => {
-    // pipe: the data will first go through the "map('innerText')" step,
-    // then through "map(toDate)" step, finally through the "invoke('getTime')"
     const fn = pipe(map('innerText'), map(toDate), invoke('getTime'))
+    // The function fn constructed above is sitting, waiting for data. Once the data is passed in,
+    // the fn($cells) is computed and passed to the assertion expect(...).to ... for evaluation.
     expect(fn($cells)).to.be.ascending
   })
 })
 
-it('gets sorted by date: really', () => {
+// Piping the data through a series of functions to be fed to the assertion expect(...).to Chai chainer is so common,
+// that cypress-should-really has a ... helper for this.
+// If you want to transform the data and run it through a Chai assertion use really function.
+// It construct a should(callback) for you:
+
+it('gets sorted sorted by date, using should really', () => {
   cy.contains('button', 'Sort by date').click()
+
   cy.get('tbody td:nth-child(2)').should(
     really(map('innerText'), map(toDate), invoke('getTime'), 'be.ascending'),
   )
 })
 
-it('gets sorted by date: chainer arguments', () => {
+// If you have any arguments for the assertion, place it after the chainer string.
+// The same test can be written as
+it('gets sorted sorted by date, using should really chainer arguments', () => {
   cy.contains('button', 'Sort by date').click()
+
   cy.get('tbody td:nth-child(2)').should(
     really(map('innerText'), map(toDate), invoke('getTime'), 'be.sorted', {
       descending: false,

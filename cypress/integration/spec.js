@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-import { invoke, map, toDate } from 'cypress-should-really'
-
 // https://www.chaijs.com/plugins/chai-sorted/
 chai.use(require('chai-sorted'))
 

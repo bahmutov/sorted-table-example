@@ -7,6 +7,10 @@ Read the blog post [Functional Helpers For Cypress Tests](https://glebbahmutov.c
 
 Read the blog post [Spy On DOM Methods And Properties](https://glebbahmutov.com/blog/spy-on-dom-methods/) and check out [spy-on-removeAttribute.js](./cypress/integration/spy-on-removeAttribute.js) and [spy-on-innerHTML.js](./cypress/integration/spy-on-innerHTML.js) test files.
 
+## Videos
+
+- [Add Unit Tests To Verify chai-sorted Assertion Plugin](https://youtu.be/skjPl8wvHEo)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021

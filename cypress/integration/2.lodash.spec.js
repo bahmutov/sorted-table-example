@@ -36,12 +36,6 @@ it('gets sorted by date', () => {
       const dates = _.map(strings, (s) => new Date(s))
       const timestamps = _.map(dates, (d) => d.getTime())
 
-      // if regular array could do the `_.property` iteratee shorthand from lodash 
-      // & deal with jQuery I would do this
-      // const timestamps = strings
-      //   .map((s) => new Date(s))
-      //   .map(d => d.getTime())
-
       expect(timestamps).to.be.ascending
     })
 })

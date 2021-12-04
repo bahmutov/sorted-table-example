@@ -1,2 +1,3 @@
 node_modules/
 cypress/support/commands.js
+package-lock.json

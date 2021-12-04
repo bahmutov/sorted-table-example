@@ -49,7 +49,7 @@ it('is not sorted at first', () => {
       })
   })
   
-  it.only('gets sorted sorted by date, using pipe', () => {
+  it('gets sorted sorted by date, using pipe', () => {
     cy.contains('button', 'Sort by date').click()
   
     cy.get('tbody td:nth-child(2)').should(($cells) => {

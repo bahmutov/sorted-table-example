@@ -24,7 +24,7 @@
     "chai-sorted": "0.2.0",
     "cypress": "9.1.1",
     "cypress-should-really": "1.1.0",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "ramda": "0.27.1"
   }
 }

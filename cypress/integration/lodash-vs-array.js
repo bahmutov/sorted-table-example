@@ -21,7 +21,7 @@ it('object comparison: lodash maps over values automatically', () => {
     Object.values({ 'a': 4, 'b': 8 }).map(square)
   ).should('deep.eq', [16, 64])
   
-  // one advantage of lodash map is being able t map over objects
+  // one advantage of lodash map is being able to map over objects
   cy.wrap(
     _.map({ 'a': 4, 'b': 8 }, square)
   ).should('deep.eq', [16, 64])  

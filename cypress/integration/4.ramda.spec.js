@@ -3,7 +3,8 @@
 chai.use(require('chai-sorted'))
 const { _, $, R } = Cypress
 
-const toDate = string => new Date(string)
+// const toDate = string => new Date(string)
+// const toDate = R.constructN(1, Date) // the two are equivalent
 
 it('works with Ramda', () => {
   cy.wrap(R.range(1, 5)).should('deep.equal', [1, 2, 3, 4])
@@ -52,17 +53,19 @@ it('is not sorted at first', () => {
   it('gets sorted sorted by date, using pipe', () => {
     cy.contains('button', 'Sort by date').click()
   
+    const fn = R.pipe( // jQuery
+      $.makeArray, // Element[] 
+      R.map(R.prop('innerText')), // string[]
+      R.map(R.constructN(1, Date) ), // Date[] . An array of dates does not have getTime, each element has getTime
+      R.map(R.invoker(0, 'getTime')), // number[]
+    )  
+
     cy.get('tbody td:nth-child(2)').should(($cells) => {
 
-      const fn = R.pipe(
-        R.map(R.prop('innerText'), $.makeArray),
-        R.map(toDate), 
-        R.invoker(0, 'getTime')
-      )      
       // The function fn constructed above is sitting, waiting for data. Once the data is passed in,
       // the fn($cells) is computed and passed to the assertion expect(...).to ... for evaluation.
 
       // fails
-      // expect(fn($cells)).to.be.ascending
+      expect(fn($cells)).to.be.ascending
     })
   })

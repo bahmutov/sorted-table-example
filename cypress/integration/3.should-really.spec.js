@@ -47,8 +47,13 @@ it('gets sorted sorted by date, using should-really utils', () => {
 it('gets sorted sorted by date, using pipe', () => {
   cy.contains('button', 'Sort by date').click()
 
+  const fn = pipe(
+    map('innerText'), 
+    map(toDate), 
+    invoke('getTime')
+  )
+  
   cy.get('tbody td:nth-child(2)').should(($cells) => {
-    const fn = pipe(map('innerText'), map(toDate), invoke('getTime'))
     // The function fn constructed above is sitting, waiting for data. Once the data is passed in,
     // the fn($cells) is computed and passed to the assertion expect(...).to ... for evaluation.
     expect(fn($cells)).to.be.ascending

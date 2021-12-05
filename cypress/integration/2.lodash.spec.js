@@ -16,16 +16,6 @@ it('is not sorted at first', () => {
     .should('not.be.sorted') // shortened version
 })
 
-it.skip('gets sorted by date - fails without hard wait', () => {
-  cy.contains('button', 'Sort by date').click().wait(3000) // fails without it
-  cy.get('tbody td:nth-child(2)')
-    .should('have.length', 4)
-    .then(($cells) => _.map($cells, 'innerText'))
-    .then((strings) => _.map(strings, (s) => new Date(s)))
-    .then((dates) => _.map(dates, (d) => d.getTime()))
-    .should('be.ascending')
-})
-
 it('gets sorted by date', () => {
   cy.contains('button', 'Sort by date').click()
 
@@ -38,4 +28,14 @@ it('gets sorted by date', () => {
 
       expect(timestamps).to.be.ascending
     })
+})
+
+it.skip('gets sorted by date - fails without hard wait', () => {
+  cy.contains('button', 'Sort by date').click().wait(3000) // fails without it
+  cy.get('tbody td:nth-child(2)')
+    .should('have.length', 4)
+    .then(($cells) => _.map($cells, 'innerText'))
+    .then((strings) => _.map(strings, (s) => new Date(s)))
+    .then((dates) => _.map(dates, (d) => d.getTime()))
+    .should('be.ascending')
 })

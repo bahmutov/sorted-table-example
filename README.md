@@ -10,6 +10,7 @@ Read the blog post [Spy On DOM Methods And Properties](https://glebbahmutov.com/
 ## Videos
 
 - [Add Unit Tests To Verify chai-sorted Assertion Plugin](https://youtu.be/skjPl8wvHEo)
+- [Debug Ramda Pipeline in Cypress Test](https://youtu.be/jlBNdJPscJk)
 
 ## Small print
 

@@ -12,7 +12,7 @@ const list = [
     date: '1997-12-23',
   },
   {
-    name: 'Cary',
+    name: 'Joe',
     date: '2001-01-24',
   },
 ]

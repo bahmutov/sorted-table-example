@@ -40,6 +40,28 @@ it('confirms the sorted age column', () => {
   // Can you simplify it?
 })
 
+it('confirms the sorted age column: refactored', () => {
+  // can you confirm the "Age" column is not sorted initially?
+  // Tip: Use cy.table and other queries from cypress-map
+
+  // Bonus: there is a lot of duplication in the above test
+  // Can you simplify it?
+  const ages = () =>
+    cy
+      .get('table tbody')
+      .table(2, 0, 1)
+      .print()
+      .invoke('flatMap', Cypress._.identity)
+      .print('merged %o')
+      .map(Number)
+
+  ages().should('not.be.sorted')
+  // click the sort button
+  cy.get('#sort-by-date').click()
+  // the "Age" column should be sorted in ascending order
+  ages().should('be.ascending')
+})
+
 it('confirms the name and dates of the last two sorted rows', () => {
   // sort the table by date
   cy.get('#sort-by-date').click()

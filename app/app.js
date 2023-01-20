@@ -2,22 +2,26 @@ const list = [
   {
     name: 'Joe',
     date: '1990-02-25',
+    age: 20,
   },
   {
     name: 'Anna',
     date: '2010-03-26',
+    age: 37,
   },
   {
     name: 'Dave',
     date: '1997-12-23',
+    age: 25,
   },
   {
     name: 'Joe',
     date: '2001-01-24',
+    age: 30,
   },
 ]
 const itemToRow = (item) =>
-  `<tr><td>${item.name}</td><td>${item.date}</td></tr>`
+  `<tr><td>${item.name}</td><td>${item.date}</td><td>${item.age}</td></tr>`
 const listToHtml = (list) => list.map(itemToRow).join('\n')
 
 function sortTable() {

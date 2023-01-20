@@ -13,6 +13,9 @@ beforeEach(() => {
 it('confirms the headings', () => {
   // can you confirm the table has the following headings?
   const headings = ['Name', 'Date (YYYY-MM-DD)', 'Age']
+  // we could get each table head cell and map to its inner text
+  cy.get('table thead td').map('innerText').should('deep.equal', headings)
+  // or let cy.table do it
   cy.get('table thead').table().its(0).should('deep.equal', headings)
 })
 

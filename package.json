@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run",
+    "badges": "npx -p dependency-version-badge update-badge cypress"
   },
   "repository": {
     "type": "git",

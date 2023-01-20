@@ -4,6 +4,8 @@
 
 ![Sorted table test](./images/using-disabled.gif)
 
+🎓 For my course [Cypress Plugins](https://cypress.tips/courses/cypress-plugins) use the branch `cypress-plugins`
+
 Read the blog post [Functional Helpers For Cypress Tests](https://glebbahmutov.com/blog/fp-cy-helpers/) and check out [spec.js](./cypress/integration/spec.js) and [better-spec.js](./cypress/integration/better-spec.js) test files.
 
 Read the blog post [Spy On DOM Methods And Properties](https://glebbahmutov.com/blog/spy-on-dom-methods/) and check out [spy-on-removeAttribute.js](./cypress/integration/spy-on-removeAttribute.js) and [spy-on-innerHTML.js](./cypress/integration/spy-on-innerHTML.js) test files.

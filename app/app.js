@@ -1,3 +1,12 @@
+// initialize the headings after a delay
+setTimeout(() => {
+  document.querySelector('table thead tr').innerHTML = `
+    <td>Name</td>
+    <td>Date (YYYY-MM-DD)</td>
+    <td>Age</td>
+  `
+}, 1000)
+
 const list = [
   {
     name: 'Joe',

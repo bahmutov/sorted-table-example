@@ -26,6 +26,6 @@
     "cypress": "12.9.0",
     "cypress-should-really": "1.6.3",
     "prettier": "2.8.7",
-    "ramda": "0.28.0"
+    "ramda": "0.29.0"
   }
 }

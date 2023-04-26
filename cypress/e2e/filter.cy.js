@@ -17,6 +17,7 @@ it('filters rows by name', () => {
     })
   // every row's first cell should include the string "Jo"
   cy.get('#people tbody td:nth-child(1)')
+    // cy.map and cy.print come from cypress-map
     .map('innerText')
     .print('names %o')
     .should((names) => {

@@ -1,4 +1,4 @@
-const list = [
+const initialList = [
   {
     name: 'Joe Z',
     date: '1990-02-25',
@@ -26,19 +26,31 @@ const list = [
   },
 ]
 
+let list = initialList
 let filtered = list
+let nameFilter
 
+// utility methods
 const itemToRow = (item) =>
   `<tr><td>${item.name}</td><td>${item.date}</td><td>${item.age}</td></tr>`
 const listToHtml = (list) => list.map(itemToRow).join('\n')
 
+// the main "render" method
+const render = () => {
+  if (nameFilter) {
+    filtered = list.filter((item) => item.name.includes(nameFilter))
+  } else {
+    filtered = list
+  }
+  document.getElementById('people-data').innerHTML = listToHtml(filtered)
+}
+
 // set the initial table
-document.getElementById('people-data').innerHTML = listToHtml(filtered)
+render()
 
 document.getElementById('by-name').addEventListener('input', (e) => {
-  const filter = e.target.value
+  nameFilter = e.target.value
   setTimeout(() => {
-    filtered = list.filter((item) => item.name.includes(filter))
-    document.getElementById('people-data').innerHTML = listToHtml(filtered)
+    render()
   }, 1000)
 })

@@ -46,7 +46,18 @@ const render = () => {
 }
 
 // set the initial table
-render()
+fetch('/people').then((r) => {
+  if (r.ok) {
+    r.json().then((data) => {
+      list = data
+      render()
+    })
+  } else {
+    // use the default data
+    list = initialList
+    render()
+  }
+})
 
 document.getElementById('by-name').addEventListener('input', (e) => {
   nameFilter = e.target.value

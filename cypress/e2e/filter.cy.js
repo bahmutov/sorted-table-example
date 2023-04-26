@@ -3,11 +3,8 @@
 // https://github.com/bahmutov/cypress-map
 import 'cypress-map'
 
-beforeEach(() => {
-  cy.visit('app/filter.html')
-})
-
 it('filters rows by name', () => {
+  cy.visit('app/filter.html')
   cy.get('#people tbody tr')
     .its('length')
     .should('be.gt', 2)
@@ -25,6 +22,14 @@ it('filters rows by name', () => {
         expect(name).to.include('Jo')
       })
     })
+})
+
+it('controls the network data', () => {
+  cy.intercept('/people', { fixture: 'people.json' }).as('people')
+  cy.visit('app/filter.html')
+  cy.get('#people tbody tr').should('have.length', 4)
+  cy.get('input#by-name').type('Mary')
+  cy.get('#people tbody tr').should('have.length', 2)
 })
 
 // todo: implement the test using jQuery methods with retries

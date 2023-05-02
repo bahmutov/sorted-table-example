@@ -6,12 +6,16 @@ import 'cypress-map'
 chai.config.truncateThreshold = 500
 
 it('filters rows by name', () => {
+  // visit the page
   cy.visit('app/filter.html')
+  // there should be several rows in the table
   cy.get('#people tbody tr')
     .its('length')
     .should('be.gt', 2)
     .then((n) => {
+      // type "Jo" into the input box
       cy.get('input#by-name').type('Jo')
+      // there should be fewer rows
       cy.get('#people tbody tr').should('have.length.lessThan', n)
     })
   // every row's first cell should include the string "Jo"

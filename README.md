@@ -12,6 +12,8 @@ Read the blog post [Spy On DOM Methods And Properties](https://glebbahmutov.com/
 
 Read the blog post [Check Items For Duplicates](https://glebbahmutov.com/blog/check-for-duplicates/) and check out [duplicates-spec.js](./cypress/integration/duplicates-spec.js) tests.
 
+Read the blog post [Do Not Use SHA To Compare HTML During E2E Tests](https://glebbahmutov.com/blog/do-not-use-sha/).
+
 ## Videos
 
 - [Add Unit Tests To Verify chai-sorted Assertion Plugin](https://youtu.be/skjPl8wvHEo)

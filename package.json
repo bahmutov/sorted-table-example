@@ -24,7 +24,7 @@
   "devDependencies": {
     "chai-sorted": "0.2.0",
     "cypress": "12.11.0",
-    "cypress-map": "^1.17.0",
+    "cypress-map": "^1.19.1",
     "cypress-should-really": "1.6.3",
     "prettier": "2.8.8",
     "ramda": "0.29.0"

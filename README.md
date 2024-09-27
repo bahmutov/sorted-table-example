@@ -1,4 +1,4 @@
-# sorted-table-example [![ci](https://github.com/bahmutov/sorted-table-example/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/bahmutov/sorted-table-example/actions/workflows/ci.yml) ![cypress version](https://img.shields.io/badge/cypress-13.14.2-brightgreen) ![cypress-should-really version](https://img.shields.io/badge/cypress--should--really-1.6.0-brightgreen) [![renovate-app badge][renovate-badge]][renovate-app]
+# sorted-table-example [![ci](https://github.com/bahmutov/sorted-table-example/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/bahmutov/sorted-table-example/actions/workflows/ci.yml) ![cypress version](https://img.shields.io/badge/cypress-13.15.0-brightgreen) ![cypress-should-really version](https://img.shields.io/badge/cypress--should--really-1.6.0-brightgreen) [![renovate-app badge][renovate-badge]][renovate-app]
 
 > Cypress testing if the table is sorted by a column
 

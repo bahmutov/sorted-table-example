@@ -23,7 +23,7 @@
   "homepage": "https://github.com/bahmutov/sorted-table-example#readme",
   "devDependencies": {
     "chai-sorted": "0.2.0",
-    "cypress": "14.0.0",
+    "cypress": "14.0.1",
     "cypress-map": "^1.19.1",
     "cypress-should-really": "1.6.3",
     "prettier": "3.4.2",

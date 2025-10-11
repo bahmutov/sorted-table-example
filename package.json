@@ -27,6 +27,6 @@
     "cypress-map": "^1.19.1",
     "cypress-should-really": "1.6.3",
     "prettier": "3.6.2",
-    "ramda": "0.31.3"
+    "ramda": "0.32.0"
   }
 }
